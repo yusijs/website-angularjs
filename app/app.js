@@ -16,6 +16,9 @@ const app = angular
         ngMaterial
     ])
     .component('app', AppComponent)
+    .config(['$urlRouterProvider', $urlRouterProvider => {
+        $urlRouterProvider.otherwise('/')
+    }])
     .name;
 
 export default app;

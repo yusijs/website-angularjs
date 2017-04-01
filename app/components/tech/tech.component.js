@@ -17,6 +17,7 @@ const TechComponent = {
                 </md-tab>
             </md-tabs>
         </md-card>
+        <editor></editor>
 `
 }
 
