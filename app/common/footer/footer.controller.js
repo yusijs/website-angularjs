@@ -4,19 +4,23 @@ class FooterController {
     constructor($mdDialog) {
         this.$mdDialog = $mdDialog;
 
-        this.template = ``;
+        this.test = 'This is test from ctrl';
+
+    }
+
+    send() {
+      console.log("Send email!");
+      this.$mdDialog.hide('Mail sent!');
     }
 
     showPrompt(ev) {
     this.$mdDialog.show({
-      template: footer.template,
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true
+      contentElement: '#footer-dialog',
+      parent: angular.element(document.body)
     })
-    .then(function(answer) {
-      console.log(answer);
-    }, function() {
+    .then(details => {
+      console.log(details);
+    }, () => {
       console.log("Cancelled");
     });
   };

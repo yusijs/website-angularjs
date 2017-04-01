@@ -25,13 +25,13 @@ export const footer = {
                     </md-input-container>
 
                     <md-input-container class="md-block">
-                        <label>Message details</label>
+                        <label>Message details ({{ $ctrl.test }})</label>
                         <textarea ng-model="$ctrl.details.message" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                     </md-input-container>
                 </form>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
+                <md-button ng-click="$ctrl.send()">Send Mail</md-button>
                 <md-button>Action 2</md-button>
             </md-card-actions>
         </md-card>`
