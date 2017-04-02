@@ -4,13 +4,17 @@ class FooterController {
     constructor($mdDialog) {
         this.$mdDialog = $mdDialog;
 
-        this.test = 'This is test from ctrl';
+        this.details = {};
 
     }
 
     send() {
       console.log("Send email!");
       this.$mdDialog.hide('Mail sent!');
+    }
+
+    cancel() {
+      this.$mdDialog.hide();
     }
 
     showPrompt(ev) {
@@ -21,8 +25,6 @@ class FooterController {
     })
     .then(details => {
       console.log(details);
-    }, () => {
-      console.log("Cancelled");
     });
   };
 }
