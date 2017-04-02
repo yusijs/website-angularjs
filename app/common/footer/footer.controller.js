@@ -1,8 +1,10 @@
 import { footer } from './footer.dialog';
+import { FooterService } from './footer.service';
 
 class FooterController {
-    constructor($mdDialog) {
+    constructor($mdDialog, FooterService) {
         this.$mdDialog = $mdDialog;
+        this.footerService = FooterService;
 
         this.details = {};
 
@@ -10,6 +12,9 @@ class FooterController {
 
     send() {
       console.log("Send email!");
+      this.footerService.postForm(this.details)
+        .then(console.log)
+        .catch(console.error);
       this.$mdDialog.hide('Mail sent!');
     }
 
@@ -29,6 +34,6 @@ class FooterController {
   };
 }
 
-FooterController.$inject = ['$mdDialog'];
+FooterController.$inject = ['$mdDialog', 'FooterService'];
 
 export default FooterController;
