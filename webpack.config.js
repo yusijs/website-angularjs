@@ -1,6 +1,7 @@
 var path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 const filesToCopy = new CopyWebpackPlugin([
     {
@@ -40,7 +41,10 @@ module.exports = {
         ]
     },
     plugins: [
-        filesToCopy
+        filesToCopy,
+        new ngAnnotatePlugin({
+            add: true
+        })
     ],
     context: __dirname,
     entry: "./app/index.js",
